@@ -25,7 +25,7 @@ object CanTruthy extends App with TruthyImplicits {
   println(s"false.truthy = ${ "false".truthy }")
   println(s"si.truthy = ${ "si".truthy }")
   println(s"yes.truthy = ${ "yes".truthy }")
-  
+
   println(s"0.truthy = ${ 0.truthy }")
   println(s"10.truthy = ${ 10.truthy }")
 }
