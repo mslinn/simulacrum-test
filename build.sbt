@@ -23,10 +23,10 @@ javacOptions ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "com.github.mpilquist" %% "simulacrum" % "0.19.0",
+  "com.github.mpilquist" %% "simulacrum" % "0.19.0" % Provided,
   //
-  "org.scalatest"     %% "scalatest"   % "3.0.8" % Test withSources(),
-  "junit"             %  "junit"       % "4.12"  % Test
+  "org.scalatest"        %% "scalatest"  % "3.0.8"  % Test withSources(),
+  "junit"                %  "junit"      % "4.12"   % Test
 )
 
 licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html"))

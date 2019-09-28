@@ -12,7 +12,7 @@ object West  extends Direction
 trait TruthyImplicits3 {
   @typeclass trait Truthy[A <: Direction] { self =>
     /** @return true if `a` is truthy. */
-    @op("truthy") def truthy(a: A): Boolean
+    /*@op("truthy") */def truthy(a: A): Boolean
   }
 
   implicit val directionCanTruthy: Truthy[Direction] = {
@@ -24,8 +24,13 @@ trait TruthyImplicits3 {
 object CanTruthy3 extends App with TruthyImplicits3 {
   import Truthy.ops._
 
-  println(s"North.truthy = ${ North.truthy }")
-  println(s"South.truthy = ${ South.truthy }")
-  println(s"East.truthy  = ${ East.truthy }")
-  println(s"West.truthy  = ${ West.truthy }")
+  def north: Direction = North
+  def south: Direction = South
+  def east: Direction = East
+  def west: Direction = West
+
+  println(s"North.truthy = ${ north.truthy }")
+  println(s"South.truthy = ${ south.truthy }")
+  println(s"East.truthy  = ${ east.truthy }")
+  println(s"West.truthy  = ${ west.truthy }")
 }
