@@ -45,9 +45,9 @@ object CanTruthy3 extends App with TruthyImplicits3 {
   val east: Direction = new East
   val west: Direction = new West
 
-  println(s"North.truthy = ${ doTruthy1(north) }")
-  println(s"North.truthy = ${ doTruthy2(north) }")
-  println(s"South.truthy = ${ south.truthy }")
-  println(s"East.truthy  = ${ east.truthy }")
-  println(s"West.truthy  = ${ west.truthy }")
+  println(s"doTruthy1(north) = ${ doTruthy1(north) }")
+  println(s"doTruthy2(north) = ${ doTruthy2(north) }")
+  println(s"south.truthy = ${ south.truthy }")
+  println(s"east.truthy  = ${ east.truthy }")
+  println(s"west.truthy  = ${ west.truthy }")
 }
