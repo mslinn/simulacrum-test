@@ -16,6 +16,7 @@ trait TruthyImplicits3 {
     /*@op("truthy") */def truthy(d: D): Boolean  // TODO why is @op not required? When is @op required?
   }
 
+  // Implicit conversion from an instance of a Direction subclass to a Truthy[Direction] instance
   implicit val directionCanTruthy: Truthy[Direction] = {
     case _: North => true
     case _ => false
