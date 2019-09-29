@@ -31,7 +31,7 @@ trait TruthyImplicits3 {
     case _: Direction => false
   }
 
-  // This pattern matching anonymous function is equivalent to the above
+  // TODO Verify hat this pattern matching anonymous function is equivalent to the above
 /*  implicit val dct2: Truthy[Direction] = (d: Direction) => d match {
     case _: North => true
     case _: Direction => false
