@@ -19,9 +19,17 @@ trait TruthyImplicits3 {
   // The above @typeclass annotation has no influence over the compiler's handling of this next statement.
   // TODO Is this correct: Implicit conversion from an instance of a Direction subtype to a Truthy[Direction] instance
   // TODO Or is this more correct: Implicit conversion from an instance of an Any subtype to a Truthy[Direction] instance; only a North instance will successfully convert.
-  implicit val directionCanTruthy: Truthy[Direction] = {
+  /*implicit val directionCanTruthy: Truthy[Direction] = {
     case _: North => true
     case _ => false
+  }*/
+
+  // Implicit conversion from an instance of a Direction subtype to a Truthy[Direction] instance
+  // TODO Verify that this implicit should be preferred over the previous statement because it avoids attempting to convert from Any to Truthy.
+  // TODO is there a better way to restrain the compiler from attempting to convert from Any => Truthy[Direction]?
+  implicit val dct: Truthy[Direction] = {
+    case _: North => true
+    case _: Direction => false
   }
 }
 
