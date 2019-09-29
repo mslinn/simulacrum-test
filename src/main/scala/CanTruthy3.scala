@@ -26,11 +26,16 @@ trait TruthyImplicits3 {
 
   // Implicit conversion from an instance of a Direction subtype to a Truthy[Direction] instance
   // TODO Verify that this implicit should be preferred over the previous statement because it avoids attempting to convert from Any to Truthy.
-  // TODO is there a better way to restrain the compiler from attempting to convert from Any => Truthy[Direction]?
   implicit val dct: Truthy[Direction] = {
     case _: North => true
     case _: Direction => false
   }
+
+  // This pattern matching anonymous function is equivalent to the above
+/*  implicit val dct2: Truthy[Direction] = (d: Direction) => d match {
+    case _: North => true
+    case _: Direction => false
+  }*/
 }
 
 object CanTruthy3 extends App with TruthyImplicits3 {
