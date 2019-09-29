@@ -16,7 +16,8 @@ trait TruthyImplicits3 {
     /*@op("truthy") */def truthy(d: D): Boolean  // TODO why is @op not required? When is @op required?
   }
 
-  // Implicit conversion from an instance of a Direction subclass to a Truthy[Direction] instance
+  // TODO Is this correct: Implicit conversion from an instance of a Direction subtype to a Truthy[Direction] instance
+  // TODO Or is this more correct: Implicit conversion from an instance of an Any subtype to a Truthy[Direction] instance; only a North instance will successfully convert.
   implicit val directionCanTruthy: Truthy[Direction] = {
     case _: North => true
     case _ => false
