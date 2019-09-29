@@ -26,6 +26,18 @@ trait TruthyImplicits3 {
 object CanTruthy3 extends App with TruthyImplicits3 {
   import Truthy.ops._
 
+  // Instances of Direction subtypes are implicitly enriched by the Truthy typeclass
+  val north: Direction = new North
+  val south: Direction = new South
+  val east: Direction = new East
+  val west: Direction = new West
+
+  println(s"south.truthy = ${ south.truthy }")
+  println(s"east.truthy  = ${ east.truthy }")
+  println(s"west.truthy  = ${ west.truthy }")
+  println(s"doTruthy1(north) = ${ doTruthy1(north) }")
+  println(s"doTruthy2(north) = ${ doTruthy2(north) }")
+
   // TODO Verify that `D <: Direction : Truthy` means the following:
   // Two bounds are applied to D:
   //   1) Type D is constrained to be a subtype of Direction, or is of type Direction
@@ -39,16 +51,4 @@ object CanTruthy3 extends App with TruthyImplicits3 {
   // import cats.Show
   // def printTruthy[D : Truthy : Show](d: D): Unit = println(s"${ d.show }.truthy = ${ d.truthy }")
   // TODO Again we see 2 constraints applied to A. What does `A : Truthy : Show` mean?
-
-  // Instances of Direction subtypes are implicitly enriched by the Truthy typeclass
-  val north: Direction = new North
-  val south: Direction = new South
-  val east: Direction = new East
-  val west: Direction = new West
-
-  println(s"doTruthy1(north) = ${ doTruthy1(north) }")
-  println(s"doTruthy2(north) = ${ doTruthy2(north) }")
-  println(s"south.truthy = ${ south.truthy }")
-  println(s"east.truthy  = ${ east.truthy }")
-  println(s"west.truthy  = ${ west.truthy }")
 }
