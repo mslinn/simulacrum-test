@@ -28,7 +28,7 @@ object CanTruthy3 extends App with TruthyImplicits3 {
 
   // TODO Verify that `D <: Direction : Truthy` means the following:
   // Two bounds are applied to D:
-  //   1) A is constrained to be a subtype of Direction, or is of type Direction
+  //   1) Type D is constrained to be a subtype of Direction, or is of type Direction
   //   2) A context bound parameter (implicit _: Truthy[+Direction]) is defined
   def doTruthy1[D <: Direction : Truthy](d: D): Boolean = d.truthy
 
